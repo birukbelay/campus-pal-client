@@ -102,16 +102,37 @@ export const login = (usr:AuthModel, history, checked:boolean) => async dispatch
         dispatch(queryFailure(<ActionError>{error:err.message, queryType:Query.LOGIN}))
     }
 }
-
-export const signup = (usr:AuthModel, history) => async dispatch => {
+// TODO Fix this Method signup and activate methods
+export const signup = (usr:AuthModel) => async dispatch => {
     try {
         dispatch(queryStart(Query.SIGNUP))
-        const questions = await ApiService.post('auth/phoneRegister', usr)
+        const signUpResp = await ApiService.post('auth/signup', usr)
 
-        let user:AuthModel=getResponseData(questions)
-        dispatch(signUpSuccess(user))
-        history.push(Routes.LOGIN);
-        message.success('You Are Verified Successfully, Please Login Using Your phone and Password');
+        if (signUpResp.data=="true")
+        {
+            message.info(' a verification code is sent ');
+        }
+
+       
+
+    } catch (err) {
+        dispatch(queryFailure(<ActionError>{error:err.message, queryType:Query.SIGNUP}))
+    }
+}
+export const activate = (codes, history) => async dispatch => {
+    try {
+        dispatch(queryStart(Query.SIGNUP))
+        const activateResp = await ApiService.post('auth/activate', codes)
+
+        if (activateResp.data.user)
+        {
+            dispatch(signUpSuccess(activateResp.data.user))
+            history.push(Routes.LOGIN);
+            message.success('You Are Verified Successfully, Please Login Using Your phone and Password');
+        }else {
+            message.error('some thing went wrong');
+        }
+
 
     } catch (err) {
         dispatch(queryFailure(<ActionError>{error:err.message, queryType:Query.SIGNUP}))
