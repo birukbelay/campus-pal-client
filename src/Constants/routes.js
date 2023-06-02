@@ -6,12 +6,14 @@ const Routes = {
     SIGNUP:"/signup",
     ADMIN:"/admin",
     HOME:"/home",
-    PROFILE:"/profile/:username",
 
-
-
-    Users:"/users",
     DASH:"/dash",
+    //------
+    ITEM:"/items",
+    GENRE:"/tags",
+    //-------
+    PROFILE:"/profile/:username",
+    Users:"/users",
 
 
 }

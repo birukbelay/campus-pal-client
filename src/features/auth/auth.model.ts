@@ -22,6 +22,10 @@ export interface AuthModel extends BaseUser{
     password?: string
     idToken?:string
     phone?:string
+    userImages?:{
+        id?:string
+        profile?:string
+    }
 
 
 

@@ -4,9 +4,9 @@ import { Switch, Route,  useRouteMatch} from 'react-router-dom'
 import HamburgerMenu from "./components/Header/HamburgerMenu";
 
 
-// import Index from "./Index/Index";
-// import Items from "./Items";
-// import SingleItem from "./SingleItem/SingleItem.container";
+import Index from "./Index/Index";
+import Items from "./Items";
+import SingleItem from "./SingleItem/SingleItem.container";
 
 import Navbar from "./Navbar";
 
@@ -27,14 +27,14 @@ function Landing () {
                 <div className="fs_menu_overlay"> </div>
                 <HamburgerMenu/>
 
-                {/*<Switch>*/}
-                {/*    <Route path={`${path}items`} component={Items} />*/}
-                {/*    <Route exact path={`${path}/`} component={Index} />*/}
-                {/*    <Route exact path={`${path}single/:id`} component={SingleItem}/>*/}
-                {/*    <Route exact path={`${path}/single/:id`} component={SingleItem}/>*/}
-                {/*    /!*<Route component={NotFound} />*!/*/}
-                {/*</Switch>*/}
-                {/*/!*<Newsletter/>*!/*/}
+                <Switch>
+                    <Route path={`${path}items`} component={Items} />
+                    <Route exact path={`${path}/`} component={Index} />
+                    <Route exact path={`${path}single/:id`} component={SingleItem}/>
+                    <Route exact path={`${path}/single/:id`} component={SingleItem}/>
+                    {/*<Route component={NotFound} />*/}
+                </Switch>
+                {/*<Newsletter/>*/}
                 {}
                 {/*<Footer/>*/}
             </div>

@@ -16,7 +16,7 @@ import {Spin} from "antd";
 
 
 // import Apps from "../pages/tailwindUis/All";
-// import SignUpPage from "../features/auth/ui/registerWIthPhone";
+
 import {
 
   QueryClient,
@@ -29,7 +29,7 @@ const queryClient = new QueryClient();
 const LoginPage = lazy(()=> import("../features/auth/ui/login"));
 
 const SignUpPage = lazy(()=> import("../features/auth/ui/registerWIthPhone"));
-// const Dashboard = lazy(()=> import('../pages/admin'));
+const DashBoard = lazy(()=> import('../pages/admin'));
 const NotFoundPage = lazy(()=> import("../components/NotFound"));
 const Landing = lazy(()=> import("../pages/Landing/Landing"));
 
@@ -43,8 +43,8 @@ const App = () => {
     <Router>
       <Suspense fallback={<Spin  size="large"/>} >
     <Switch>
-      {/*<Route  path={Routes.ADMIN} component={Dashboard}/>*/}
-      {/*<ProtectedRoute  path={Routes.ADMIN} component={Dashboard}/>*/}
+      <Route  path={Routes.ADMIN} component={DashBoard}/>
+      {/*<ProtectedRoute  path={Routes.ADMIN} component={UiDashBoard}/>*/}
 
       <AuthRoute  path={Routes.LOGIN} component={LoginPage}/>
       <Route path={Routes.SIGNUP}><SignUpPage /> </Route>

@@ -43,8 +43,8 @@ const Navbar = () => {
                         <Link to="/">
                             <li className={styles.navBarLink}>Home</li>
                         </Link>
-                        <Link to="/items">
-                            <li className={styles.navBarLink}>Filter books</li>
+                        <Link to="/admin">
+                            <li className={styles.navBarLink}>profile</li>
                         </Link>
 
                     </ul>
@@ -99,7 +99,7 @@ const Navbar = () => {
                             </Link>
                             <Link to="/items">
                                 <li onClick={() => setNav(false)} className="py-4 text-sm">
-                                    Filter books
+                                    Filter
                                 </li>
                             </Link>
 

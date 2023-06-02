@@ -42,8 +42,13 @@ export enum colors{
  BgCyan = "\x1b[46m"
 
 }
-export const log_Fun=(name:string, value, color=colors.FgBlue, num=2)=>{
-    console.log(color, "DEBUG:-", name,"--->v=",JSON.stringify(value), "---",Reset, (new Error().stack.split("at ")[num]).trim(), ">>>")
+export const log_Fun=(name:string, value, color=colors.FgBlue, nums=2)=>{
+    try{
+        console.log(color, "DEBUG:-", name,"--->v=",JSON.stringify(value), "---",Reset, (new Error().stack.split("at ")[nums]).trim(), ">>>")
+
+    }catch (e) {
+
+    }
 }
 export const log_func=(name, value, color="", num=2)=>{
     let val
